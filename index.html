@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TubeLite — Video Sharing</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="/">TubeLite</a>
+  <form id="search" class="search"><input id="q" placeholder="Search videos..." autocomplete="off"><button>Search</button></form>
+  <nav><button class="ghost" id="loginBtn">Login</button><button class="primary" id="uploadBtn">Upload</button></nav>
+</header>
+<main>
+  <section id="hero" class="hero">
+    <div><h1>Share what you create.</h1><p>Upload videos, build your channel and discover creators.</p><button class="primary" id="heroUpload">Upload a video</button></div>
+  </section>
+  <div class="sectionHead"><h2 id="feedTitle">Latest videos</h2><span id="status"></span></div>
+  <section id="grid" class="grid"></section>
+</main>
+
+<div class="modal" id="authModal"><div class="modalCard">
+<button class="x" data-close="authModal">×</button>
+<h2 id="authTitle">Login</h2>
+<form id="authForm">
+<input id="username" name="username" placeholder="Username" minlength="3" maxlength="24" required>
+<input id="password" name="password" type="password" placeholder="Password" minlength="6" required>
+<button class="primary">Continue</button>
+</form>
+<p id="authSwitch">New here? <button class="link" id="switchAuth">Create account</button></p>
+<p class="error" id="authError"></p>
+</div></div>
+
+<div class="modal" id="uploadModal"><div class="modalCard">
+<button class="x" data-close="uploadModal">×</button>
+<h2>Upload video</h2>
+<form id="uploadForm">
+<input name="title" placeholder="Video title" maxlength="150" required>
+<textarea name="description" placeholder="Description" maxlength="5000"></textarea>
+<input name="thumb" placeholder="Thumbnail URL (optional)">
+<input name="video" type="file" accept="video/*" required>
+<small>Maximum 512 MB. MP4/WebM is recommended.</small>
+<button class="primary">Upload</button>
+</form>
+<div class="progress"><span id="progressBar"></span></div>
+<p id="uploadMsg"></p>
+</div></div>
+
+<div class="modal" id="watchModal"><div class="watchCard">
+<button class="x" data-close="watchModal">×</button>
+<video id="player" controls playsinline></video>
+<div class="watchInfo"><h2 id="watchTitle"></h2><p id="watchMeta"></p><p id="watchDesc"></p>
+<button class="primary" id="likeBtn">♡ Like</button></div>
+<div class="comments"><h3>Comments</h3><form id="commentForm"><input name="body" placeholder="Add a comment..." maxlength="1000" required><button>Post</button></form><div id="commentList"></div></div>
+</div></div>
+
+<script src="/app.js"></script>
+</body>
+</html>
